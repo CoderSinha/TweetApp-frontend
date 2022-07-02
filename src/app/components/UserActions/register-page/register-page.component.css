@@ -1,0 +1,32 @@
+h1 {
+	padding: 20px 40px;
+    margin: 20px 0;
+    text-align: center;
+    color:black;
+    font-family: Cambria;
+}
+
+
+h3 {
+    text-align: center;
+}
+
+.container {
+	min-height: 85vh;
+	min-width: 100vw;
+  }
+
+ button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 7px 7px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+button:hover {
+	opacity: 0.8;
+	background-color: #0000FF;
+}

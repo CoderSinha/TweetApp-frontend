@@ -1,0 +1,37 @@
+<div class="container">
+  <div *ngFor="let user of get">
+    <div
+      class="card border-secondary mb-3 my-auto mx-auto"
+      style="max-width: 30rem; margin-top: 10em"
+    >
+      <div class="card-header">
+        <img
+          src="../../../assets/images/face.png"
+          alt="..."
+          class="profile-picture"
+        />{{ user.username }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ user.tweetText }}</p>
+      </div>
+      <div class="card-header bg-light">
+        <p *ngFor="let reply of user.replies">
+          {{ reply.username }}
+          Replied :
+          {{ reply.replyText }}
+        </p>
+      </div>
+      <div>
+        <div class="col-12">
+          <textarea name="replyText" id="replyText"
+          class="form-control"
+          rows="2" placeholder="Comment to tweet"></textarea>
+      </div>
+      <div class="form-row">
+        <button type="submit"
+            style="background-color: green;" onclick="commentOnTweet()">Comment</button>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="container">
+
+  <div class="jumbotron">
+
+   <h1 class="display-4">
+       # Tweet
+       <img src="../../../../assets/images/icon.png" width="150" height="" />
+   </h1>
+   <hr>
+   <div class="row">
+
+       <div class="column">
+
+           <p>Build a stronger relationship with every customer.</p>
+       <h3>
+                  <u> See how Tweet App can help you :</u>
+                   <br>
+
+       </h3>
+       
+       <ul>
+         <li>Reach customers on any device and channel, whether by
+                       mobile, landline, email, or social.</li>
+                       <br>
+         <li>Don’t miss what’s happening.
+          People on Twitter are the first to know..</li>
+                       <br>
+         <li>Build rich customer profiles, including life event alerts
+                       that can be leveraged for additional sales</li>
+                       <br>
+               </ul>
+               <br>
+               <br>
+
+               Questions? Talk to an expert: <b>000 111 111 111</b>
+
+           </div>
+
+       <div class="column">
+
+           <form ngNativeValidate (ngSubmit)="validateLogin()" >
+               
+               <div class="form-group">
+                   <h2>Login or SignUp</h2> 
+               </div>
+
+               <div class="form-group">
+                <label for="exampleInputEmail1">User Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="userId"
+                  id="userId"
+                  [(ngModel)]="userId"
+                  required
+                  placeholder="UserName"
+                />
+                <div class="alert alert-danger"
+                   role="alert" *ngIf="inValidLogin">Valid UserId is required</div>
+
+              </div>
+   
+               <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  [(ngModel)]="password"
+                  required
+                  placeholder="Password"
+                />
+                <div class="alert alert-danger" role="alert" *ngIf="inValidLogin">Valid Password is required</div>
+              </div>
+               
+               <div class="form-group">
+                   <button class="btn btn-primary" >Login</button>
+               </div>
+
+               <div class="form-group">
+                   <div class="alert alert-danger" role="alert" *ngIf="inValidLogin">
+                     Login failed
+                   </div>
+               </div>
+
+               <div class="form-group">
+                <small style="text-decoration: black underline; color: red" (click)="forgotPassword()">Forgot password?</small>
+            </div>
+               
+               <div class="form-group">
+                   <p>Don't Have Account? New user register here
+                    <a
+                      style="text-decoration: black underline; color: red"
+                      (click)="registerPage()"
+                      >Register Now !</a
+                    ></p>
+               </div>
+           </form>
+       </div>
+   </div>	
+   </div>
+</div>

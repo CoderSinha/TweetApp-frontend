@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto" style="max-width: 30rem">
+            <div class="card-body">
+                <form ngNativeValidate (ngSubmit)="postTweet()">
+                    <div class="form-group">
+                        <h3 class="text-blue">Hi
+                        </h3>
+                        <textarea name="tweetText" id="tweetText"
+                            [(ngModel)]="tweetText" required
+                            class="form-control"
+                            rows="2" placeholder="Tweet App"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary"
+                            style="background-color: green; padding: auto;
+                            margin-top: 5px;">Post Tweet</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+<h3>
+    <u>Tweets From Past:</u>
+</h3>
+<app-my-tweets></app-my-tweets>
+</div>

@@ -1,0 +1,139 @@
+<div class="container">
+  <h1>Register</h1>
+
+  <h3>Enter Details To Register a new User:</h3>
+
+  <form ngNativeValidate (ngSubmit)="register()">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">First Name * </label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="firstName"
+          placeholder="First"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="lname">Last Name * </label>
+        <input
+          placeholder="Last"
+          type="text"
+          class="form-control"
+          name="lastName"
+          id="lastName"
+          [(ngModel)]="lastName"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="exampleInputEmail1">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        [(ngModel)]="email"
+        placeholder="Email Address"
+        required
+      />
+      <small *ngIf="isEmail" style="color: red"
+        >Email has been already registered</small
+      >
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label for="exampleInputEmail1">Login ID</label>
+        <input
+          type="text"
+          class="form-control"
+          name="loginId"
+          id="loginId"
+          [(ngModel)]="loginId"
+          required
+          placeholder="Login ID"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">Password *</label>
+        <input
+          type="password"
+          placeholder="Password"
+          (blur)="onpass()"
+          class="form-control"
+          name="password"
+          id="password"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">Confirm Password *</label>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          class="form-control"
+          (blur)="onCheckPassword()"
+          name="confirmPassword"
+          id="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          required
+        />
+        <small *ngIf="isPassword" style="color: red"
+          >Retype correct password</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="exampleInputEmail1">Contact *</label>
+        <input
+          type="number"
+          placeholder="contact Number"
+          class="form-control"
+          name="contactNumber"
+          maxlength="10"
+          minlength="10"
+          id="contactNumber"
+          [(ngModel)]="contactNumber"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <p>* Mandatory</p>
+    </div>
+
+    <div class="col-md-12">
+      <button
+        type="submit"
+        *ngIf="validForm"
+        name="register-button"
+        class="btn btn-primary"
+        (click)="registerUserConfrim()"
+      >
+        Register
+      </button>
+      <button type="submit" *ngIf="!validForm" class="btn btn-primary" disabled>
+        Register
+      </button>
+    </div>
+    <div class="col-md-12">
+      <div *ngIf="div1">User is registered</div>
+    </div>
+  </form>
+  <small>Already registered <a href="#">Login Here!</a></small>
+</div>
