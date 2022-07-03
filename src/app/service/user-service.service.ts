@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { ForgotPassword } from '../model/forgot-password';
 import { Login } from '../model/login';
 import { Users } from '../model/users';
@@ -8,36 +9,24 @@ import { Users } from '../model/users';
   providedIn: 'root',
 })
 export class UserServiceService {
-  baseUrl = 'http://beetles-tweetapp-backend.azurewebsites.net/api/v1.0/tweets';
   constructor(private http: HttpClient) {}
 
   getAllUsers(authtoken: string | null) {
-    return this.http.get(
-      'http://beetles-tweetapp-backend.azurewebsites.net/api/v1.0/tweets/users/all',
-      {
-        headers: { Authorization: `Bearer ${authtoken}` },
-      }
-    );
+    return this.http.get(environment.BASE_URL + 'users/all', {
+      headers: { Authorization: `Bearer ${authtoken}` },
+    });
   }
   loginUser(user: Login) {
-    return this.http.post<Login>(
-      'http://beetles-tweetapp-backend.azurewebsites.net/api/v1.0/tweets/login',
-      user
-    );
+    return this.http.post<Login>(environment.BASE_URL + 'login', user);
   }
   forgotPassword(password: ForgotPassword, userName: string) {
     return this.http.post(
-      'http://beetles-tweetapp-backend.azurewebsites.net/api/v1.0/tweets/' +
-        userName +
-        '/forgot',
+      environment.BASE_URL + userName + '/forgot',
       password,
       { responseType: 'text' }
     );
   }
   registserUser(user: Users) {
-    return this.http.post<any>(
-      'http://beetles-tweetapp-backend.azurewebsites.net/api/v1.0/tweets/register',
-      user
-    );
+    return this.http.post<any>(environment.BASE_URL + 'register', user);
   }
 }
